@@ -4,11 +4,11 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import edu.gordon.banking.Balances;
-import edu.gordon.banking.Card;
-import edu.gordon.banking.Message;
-import edu.gordon.banking.Money;
-import edu.gordon.banking.Status;
+import edu.gordon.atm.broadcaster.BroadcastBalances;
+import edu.gordon.atm.broadcaster.BroadcastCard;
+import edu.gordon.atm.broadcaster.BroadcastMessage;
+import edu.gordon.atm.broadcaster.BroadcastMoney;
+import edu.gordon.atm.broadcaster.MessageFormat;
 
 public class SimulatedBankHandleMessageTest 
 {
@@ -20,22 +20,22 @@ public class SimulatedBankHandleMessageTest
 		int messageCode = 0;
 		
 		int number = 1;
-		Card card = new Card(number);
+		BroadcastCard card = new BroadcastCard(number);
 		
 		int pin = 42;
 		
 		int withdrawalMoney = 20;
-		Money amount = new Money(withdrawalMoney);
+		BroadcastMoney amount = new BroadcastMoney(withdrawalMoney);
 		
 		int serialNumber = 3;
 		int fromAccount = 0;
 		int toAccount = -1;
 		
-		Message message = new Message(messageCode, card, pin, serialNumber, fromAccount, toAccount, amount);
-		Balances balances = new Balances();
+		BroadcastMessage message = new BroadcastMessage(messageCode, card, pin, serialNumber, fromAccount, toAccount, amount);
+		BroadcastBalances balances = new BroadcastBalances();
 		
-		Status status = simulatedBank.handleMessage(message, balances);
-		assertTrue(status.isSuccess());
+		MessageFormat messageFormat = simulatedBank.handleMessage(message, balances); 
+		assertTrue(messageFormat.getStatus().isSuccess());
 	}
 	
 	@Test
@@ -44,22 +44,22 @@ public class SimulatedBankHandleMessageTest
 		int messageCode = 0;
 		
 		int number = 1;
-		Card card = new Card(number);
+		BroadcastCard card = new BroadcastCard(number);
 		
 		//invalid PIN for number 1
 		int pin = 46;
 		
 		int withdrawalMoney = 20;
-		Money amount = new Money(withdrawalMoney);
+		BroadcastMoney amount = new BroadcastMoney(withdrawalMoney);
 		
 		int serialNumber = 3;
 		int fromAccount = 0;
 		int toAccount = -1;
 		
-		Message message = new Message(messageCode, card, pin, serialNumber, fromAccount, toAccount, amount);
-		Balances balances = new Balances();
+		BroadcastMessage message = new BroadcastMessage(messageCode, card, pin, serialNumber, fromAccount, toAccount, amount);
+		BroadcastBalances balances = new BroadcastBalances();
 		
-		Status status = simulatedBank.handleMessage(message, balances);
-		assertTrue(status.isInvalidPIN());
+		MessageFormat messageFormat = simulatedBank.handleMessage(message, balances);
+		assertTrue(messageFormat.getStatus().isInvalidPIN());
 	}
 }

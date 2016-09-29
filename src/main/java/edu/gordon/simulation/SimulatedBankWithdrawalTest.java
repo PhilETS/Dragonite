@@ -8,11 +8,11 @@ import java.lang.reflect.Method;
 import org.junit.Before;
 import org.junit.Test;
 
-import edu.gordon.banking.Card;
-import edu.gordon.banking.Message;
-import edu.gordon.banking.Money;
-import edu.gordon.banking.Balances;
-import edu.gordon.banking.Status;
+import edu.gordon.atm.broadcaster.BroadcastBalances;
+import edu.gordon.atm.broadcaster.BroadcastCard;
+import edu.gordon.atm.broadcaster.BroadcastMessage;
+import edu.gordon.atm.broadcaster.BroadcastMoney;
+import edu.gordon.atm.broadcaster.MessageFormat;
 
 public class SimulatedBankWithdrawalTest 
 {
@@ -29,8 +29,8 @@ public class SimulatedBankWithdrawalTest
 	{
 		simulatedBank = new SimulatedBank();
         parameterTypes = new Class[2];
-        parameterTypes[0] = Message.class;
-        parameterTypes[1] = Balances.class;
+        parameterTypes[0] = BroadcastMessage.class;
+        parameterTypes[1] = BroadcastBalances.class;
         m = simulatedBank.getClass().getDeclaredMethod(METHOD_NAME, parameterTypes);
         m.setAccessible(true);
 	}
@@ -41,24 +41,24 @@ public class SimulatedBankWithdrawalTest
 		int messageCode = 0;
 		
 		int number = 1;
-		Card card = new Card(number);
+		BroadcastCard card = new BroadcastCard(number);
 		
 		int pin = 42;
 		
 		int withdrawalMoney = 20;
-		Money amount = new Money(withdrawalMoney);
+		BroadcastMoney amount = new BroadcastMoney(withdrawalMoney);
 		
 		int serialNumber = 3;
 		int fromAccount = 0;
 		int toAccount = -1;
 		
-		Message message = new Message(messageCode, card, pin, serialNumber, fromAccount, toAccount, amount);
-		Balances balances = new Balances();
+		BroadcastMessage message = new BroadcastMessage(messageCode, card, pin, serialNumber, fromAccount, toAccount, amount);
+		BroadcastBalances balances = new BroadcastBalances();
 		
 		parameters = new Object[2];
 		parameters[0] = message;
 		parameters[1] = balances;
-		Status status = (Status)m.invoke(simulatedBank, parameters);
-		assertTrue(status.isSuccess());
+		MessageFormat messageFormat = (MessageFormat)m.invoke(simulatedBank, parameters);
+		assertTrue(messageFormat.getStatus().isSuccess());
 	}
 }

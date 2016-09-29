@@ -1,14 +1,14 @@
 package edu.gordon.atm.physical;
 
-import edu.gordon.banking.Balances;
-import edu.gordon.banking.Card;
-import edu.gordon.banking.Message;
-import edu.gordon.banking.Money;
-import edu.gordon.banking.Status;
+import edu.gordon.atm.broadcaster.BroadcastBalances;
+import edu.gordon.atm.broadcaster.BroadcastCard;
+import edu.gordon.atm.broadcaster.BroadcastMessage;
+import edu.gordon.atm.broadcaster.BroadcastMoney;
+import edu.gordon.atm.broadcaster.MessageFormat;
 
 public abstract class Listener
 {
-	public abstract void ListenDispenseCash(Money amount);
+	public abstract void ListenDispenseCash(BroadcastMoney amount);
 	
 	public abstract boolean ListenAcceptEnvelope();
 
@@ -20,15 +20,15 @@ public abstract class Listener
 
 	public abstract void ListenDisplay(String message);
 
-	public abstract Status ListenSendMessage(Message message, Balances balances);
+	public abstract MessageFormat ListenSendMessage(BroadcastMessage message, BroadcastBalances balances);
 
 	public abstract void ListenPrintLogLine(String text);
 
-	public abstract Money ListenGetInitialCash();
+	public abstract BroadcastMoney ListenGetInitialCash();
 
 	public abstract void ListenPrintReceiptLine(String nextElement);
 
-	public abstract Card ListenReadCard();
+	public abstract BroadcastCard ListenReadCard();
 
 	public abstract void ListenEjectCard();
 	
