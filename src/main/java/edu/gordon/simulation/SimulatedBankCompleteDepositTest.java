@@ -12,6 +12,7 @@ import edu.gordon.atm.broadcaster.BroadcastCard;
 import edu.gordon.atm.broadcaster.BroadcastMessage;
 import edu.gordon.atm.broadcaster.BroadcastMoney;
 import edu.gordon.atm.broadcaster.BroadcastStatus;
+import edu.gordon.atm.broadcaster.MessageFormat;
 
 public class SimulatedBankCompleteDepositTest 
 {
@@ -57,8 +58,8 @@ public class SimulatedBankCompleteDepositTest
 		parameters = new Object[2];
 		parameters[0] = message;
 		parameters[1] = balances;
-		BroadcastStatus status = (BroadcastStatus)m.invoke(simulatedBank, parameters);
-		assertTrue(status.isSuccess());
+		MessageFormat messageFormat = (MessageFormat)m.invoke(simulatedBank, parameters);
+		assertTrue(messageFormat.getStatus().isSuccess());
 	}
 
 }
