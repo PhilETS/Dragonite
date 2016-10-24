@@ -30,12 +30,10 @@
 			<td class="packageName_cols" title="CashDispenser">2</td>
 			<td class="packageName_cols" title="NetworkToBank">3</td>
 			<td class="packageName_cols" title="CardReader">4</td>
-			<td class="packageName_cols" title="OperatorPanel">5</td>
-			<td class="packageName_cols" title="ReceiptPrinter">6</td>
-			<td class="packageName_cols" title="CustomerConsole">7</td>
-			<td class="packageName_cols" title="Log">8</td>
-			<td class="packageName_cols" title="Subject">9</td>
-			<td class="packageName_cols" title="Listener">10</td>
+			<td class="packageName_cols" title="CustomerConsole">5</td>
+			<td class="packageName_cols" title="Log">6</td>
+			<td class="packageName_cols" title="OperatorPanel">7</td>
+			<td class="packageName_cols" title="ReceiptPrinter">8</td>
 		</tr>
 
 			<tr>
@@ -49,12 +47,6 @@
 							<td title="EnvelopeAcceptor uses EnvelopeAcceptor">
 								x
 							</td>
-						<td>
-							
-						</td>
-						<td>
-							
-						</td>
 						<td>
 							
 						</td>
@@ -109,12 +101,6 @@
 						<td>
 							
 						</td>
-						<td>
-							
-						</td>
-						<td>
-							
-						</td>
 			</tr>
 			<tr>
 				<td class="packageName_rows">
@@ -133,12 +119,6 @@
 							<td title="NetworkToBank uses NetworkToBank">
 								x
 							</td>
-						<td>
-							
-						</td>
-						<td>
-							
-						</td>
 						<td>
 							
 						</td>
@@ -187,108 +167,18 @@
 						<td>
 							
 						</td>
-						<td>
-							
-						</td>
-						<td>
-							
-						</td>
-			</tr>
-			<tr>
-				<td class="packageName_rows">
-					<img src="./images/class.png" alt="OperatorPanel" class="" />
-					OperatorPanel
-				</td>
-				<td class="packageNumber_rows">5</td>
-
-
-						<td>
-							
-						</td>
-						<td>
-							
-						</td>
-						<td>
-							
-						</td>
-						<td>
-							
-						</td>
-							<td title="OperatorPanel uses OperatorPanel">
-								x
-							</td>
-						<td>
-							
-						</td>
-						<td>
-							
-						</td>
-						<td>
-							
-						</td>
-						<td>
-							
-						</td>
-						<td>
-							
-						</td>
-			</tr>
-			<tr>
-				<td class="packageName_rows">
-					<img src="./images/class.png" alt="ReceiptPrinter" class="" />
-					ReceiptPrinter
-				</td>
-				<td class="packageNumber_rows">6</td>
-
-
-						<td>
-							
-						</td>
-						<td>
-							
-						</td>
-						<td>
-							
-						</td>
-						<td>
-							
-						</td>
-						<td>
-							
-						</td>
-							<td title="ReceiptPrinter uses ReceiptPrinter">
-								x
-							</td>
-						<td>
-							
-						</td>
-						<td>
-							
-						</td>
-						<td>
-							
-						</td>
-						<td>
-							
-						</td>
 			</tr>
 			<tr>
 				<td class="packageName_rows">
 					<img src="./images/class.png" alt="CustomerConsole" class="" />
 					CustomerConsole
 				</td>
-				<td class="packageNumber_rows">7</td>
+				<td class="packageNumber_rows">5</td>
 
 
-							<td title="EnvelopeAcceptor uses CustomerConsole">
-								2
-							</td>
-						<td>
-							
-						</td>
-						<td>
-							
-						</td>
+							<td class="cycle" title="EnvelopeAcceptor has cycle dependency with CustomerConsole">
+								2C
+							</td> 
 						<td>
 							
 						</td>
@@ -316,7 +206,7 @@
 					<img src="./images/class.png" alt="Log" class="" />
 					Log
 				</td>
-				<td class="packageNumber_rows">8</td>
+				<td class="packageNumber_rows">6</td>
 
 
 							<td title="EnvelopeAcceptor uses Log">
@@ -325,15 +215,9 @@
 							<td title="CashDispenser uses Log">
 								3
 							</td>
-							<td title="NetworkToBank uses Log">
-								3
-							</td>
-						<td>
-							
-						</td>
-						<td>
-							
-						</td>
+							<td class="cycle" title="NetworkToBank has cycle dependency with Log">
+								3C
+							</td> 
 						<td>
 							
 						</td>
@@ -352,37 +236,31 @@
 			</tr>
 			<tr>
 				<td class="packageName_rows">
-					<img src="./images/class.png" alt="Subject" class="" />
-					Subject
+					<img src="./images/class.png" alt="OperatorPanel" class="" />
+					OperatorPanel
 				</td>
-				<td class="packageNumber_rows">9</td>
+				<td class="packageNumber_rows">7</td>
 
 
-							<td title="EnvelopeAcceptor uses Subject">
-								2
-							</td>
-							<td title="CashDispenser uses Subject">
-								2
-							</td>
-							<td title="NetworkToBank uses Subject">
-								2
-							</td>
-							<td title="CardReader uses Subject">
-								2
-							</td>
-							<td title="OperatorPanel uses Subject">
-								2
-							</td>
-							<td title="ReceiptPrinter uses Subject">
-								2
-							</td>
-							<td title="CustomerConsole uses Subject">
-								2
-							</td>
-							<td title="Log uses Subject">
-								2
-							</td>
-							<td title="Subject uses Subject">
+						<td>
+							
+						</td>
+						<td>
+							
+						</td>
+						<td>
+							
+						</td>
+						<td>
+							
+						</td>
+						<td>
+							
+						</td>
+						<td>
+							
+						</td>
+							<td title="OperatorPanel uses OperatorPanel">
 								x
 							</td>
 						<td>
@@ -391,40 +269,34 @@
 			</tr>
 			<tr>
 				<td class="packageName_rows">
-					<img src="./images/class.png" alt="Listener" class="" />
-					Listener
+					<img src="./images/class.png" alt="ReceiptPrinter" class="" />
+					ReceiptPrinter
 				</td>
-				<td class="packageNumber_rows">10</td>
+				<td class="packageNumber_rows">8</td>
 
 
-							<td title="EnvelopeAcceptor uses Listener">
-								1
-							</td>
-							<td title="CashDispenser uses Listener">
-								1
-							</td>
-							<td title="NetworkToBank uses Listener">
-								1
-							</td>
-							<td title="CardReader uses Listener">
-								1
-							</td>
-							<td title="OperatorPanel uses Listener">
-								1
-							</td>
-							<td title="ReceiptPrinter uses Listener">
-								1
-							</td>
-							<td title="CustomerConsole uses Listener">
-								1
-							</td>
-							<td title="Log uses Listener">
-								1
-							</td>
-							<td title="Subject uses Listener">
-								2
-							</td>
-							<td title="Listener uses Listener">
+						<td>
+							
+						</td>
+						<td>
+							
+						</td>
+						<td>
+							
+						</td>
+						<td>
+							
+						</td>
+						<td>
+							
+						</td>
+						<td>
+							
+						</td>
+						<td>
+							
+						</td>
+							<td title="ReceiptPrinter uses ReceiptPrinter">
 								x
 							</td>
 			</tr>
